@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Index </title>
+  </head>
+  <body style="font-family:Vazir;" >
+    <center><h1> Welcome to Weblog App </h1></center>
+
+
+    {% for i in blog reversed %}
+      <p>User :  <b> {{ i.user }}  </p> </b>
+      <p>Subject : <b> {{ i.subject }}</p> </b>
+      {% if i.img %}
+        <p>Image :</p><img src="{{ i.img }}" alt="Blog Image" style="width:600px;height:350px;" >
+      {% endif %}
+      <p>Text :</p><pre> {{ i.text }} </pre>
+      {% if i.url %}
+        <p> <b> URL</b> : <a href="{{ i.url }}"> {{ i.url }} </a></p>
+      {% endif %}
+      {% if i.file %}
+        <p>File : {{ i.file }}</p>
+      {% endif %}
+      <p>Like : {{ i.like }}</p>
+      <p>Date :  {{ i.date }} </p>
+
+
+      <hr>
+    {% endfor %}
+
+
+  </body>
+</html>
